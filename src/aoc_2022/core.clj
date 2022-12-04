@@ -1,10 +1,13 @@
 (ns aoc-2022.core
-  (:require [aoc-2022.day3 :as day3]
-            [aoc-2022.day4 :as day4])
-  )
+  (:require
+    [aoc-2022.day1 :as day1]
+    [aoc-2022.day3 :as day3]
+    [aoc-2022.day4 :as day4]
+    ))
 
 
 (defn main []
+  (println "Day 1 result" (day1/result))
   (println "Day 3 result" (day3/result))
   (println "Day 4 result" (day4/result)))
 
