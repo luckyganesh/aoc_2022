@@ -37,4 +37,4 @@ ttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw")
   (transduce (map (comp get-unicode-mapping-number
                         get-common-element)) + 0 (partition 3 (map split-into-characters (split-into-lines input)))))
 
-(println (part-1 input) (part-2 input))
+(defn result [] [(part-1 input) (part-2 input)])
