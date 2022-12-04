@@ -27,7 +27,6 @@ ttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw")
 
 (defn get-unicode-mapping-number [character] (inc (str/index-of unicode-mapping character)))
 
-
 (defn part-1 [input]
   (transduce (map (comp get-unicode-mapping-number
                         get-common-element
