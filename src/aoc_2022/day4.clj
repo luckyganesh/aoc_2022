@@ -1,5 +1,5 @@
 (ns aoc-2022.day4
-  (:require [aoc-2022.day3 :as day3]))
+  (:require [aoc-2022.utils :as utils]))
 
 (def input (slurp "resources/day4.txt"))
 (def small-input "2-4,6-8
@@ -9,15 +9,11 @@
 6-6,4-6
 2-6,4-8")
 
-(def split-by-comma (partial day3/split #","))
-(def split-by-dash (partial day3/split #"-"))
-(defn parse-to-int [x] (Integer/parseInt x))
-
 (defn parse-input [string]
   (->> string
-       (split-by-comma)
-       (map split-by-dash)
-       (mapv (partial mapv parse-to-int))))
+       (utils/split-by-comma)
+       (map utils/split-by-dash)
+       (mapv (partial mapv utils/parse-to-int))))
 
 (defn is-sub-section [[main-start main-end] [sub-start sub-end]]
   (and (<= main-start sub-start) (>= main-end sub-end)))
@@ -37,14 +33,14 @@
 
 (defn part-1 [input]
   (->> input
-       day3/split-into-lines
+       utils/split-into-lines
        (map parse-input)
        (filter is-any-sub-section)
        count))
 
 (defn part-2 [input]
   (->> input
-       day3/split-into-lines
+       utils/split-into-lines
        (map parse-input)
        (filter is-any-overlap)
        count))
