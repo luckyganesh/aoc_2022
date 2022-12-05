@@ -10,6 +10,7 @@
 (def split-by-comma (partial split #","))
 (def split-by-dash (partial split #"-"))
 (def split-into-characters (partial split #""))
+(def split-by-space (partial split #" "))
 
 
 (defn parse-to-int [x] (Integer/parseInt x))
