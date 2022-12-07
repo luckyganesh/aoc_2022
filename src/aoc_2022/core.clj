@@ -6,6 +6,7 @@
     [aoc-2022.day4 :as day4]
     [aoc-2022.day5 :as day5]
     [aoc-2022.day6 :as day6]
+    [aoc-2022.day7 :as day7]
     ))
 
 
@@ -16,6 +17,7 @@
   (println "Day 4 result" (day4/result))
   (println "Day 5 result" (day5/result))
   (println "Day 6 result" (day6/result))
+  (println "Day 7 result" (day7/result))
   )
 
 (main)
