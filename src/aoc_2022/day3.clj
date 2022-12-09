@@ -1,7 +1,6 @@
 (ns aoc-2022.day3
   (:require [clojure.string :as str]
-            [aoc-2022.utils :as utils]
-            ))
+            [aoc-2022.utils :as utils]))
 
 (def input (slurp "resources/day3.txt"))
 
