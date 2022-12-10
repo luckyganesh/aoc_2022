@@ -29,9 +29,7 @@
     (direction-to-move position)))
 
 (defn is-neighbour [pos1 pos2]
-  (let [small-pos (min pos1 pos2)
-        big-pos (max pos1 pos2)
-        difference (abs (- big-pos small-pos))]
+  (let [difference (abs (- pos1 pos2))]
     (or (zero? difference) (= 1 difference))))
 
 (defn is-neighbour-position [[x1 y1] [x2 y2]]
@@ -43,21 +41,13 @@
     (> head-axis tail-axis) inc
     :else dec))
 
-(defn map-reduce [fun init coll]
-  (loop [p1 init coll coll result []]
-    (if (empty? coll) result
-                      (let [p2 (first coll)
-                            rest-coll (rest coll)
-                            r (fun p1 p2)]
-                        (recur r rest-coll (conj result r))))))
-
 (defn get-next-pos-tail [[head-x head-y] [old-tail-x old-tail-y]]
   (if (is-neighbour-position [head-x head-y] [old-tail-x old-tail-y])
     [old-tail-x old-tail-y]
     [((get-next-axis-fn head-x old-tail-x) old-tail-x) ((get-next-axis-fn head-y old-tail-y) old-tail-y)]))
 
 (defn get-next-pos-tails [head tails]
-  (map-reduce get-next-pos-tail head tails))
+  (utils/map-reduce get-next-pos-tail head tails))
 
 (defn move-HT [position instruction]
   (loop [position position n 0]
